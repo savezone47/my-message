@@ -1,57 +1,103 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกี่ยวกับฉัน</title>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body{
-            width:100vw;
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            background:#111;
-            font-family:Arial,sans-serif;
-            overflow:hidden;
-        }
+<title>มาดูหน้าคนไม่เต็มกัน</title>
 
-        h1{
-            font-size:clamp(40px,9vw,140px);
-            text-align:center;
-            color:#ff2d2d;
-            font-weight:bold;
-            text-shadow:0 0 20px rgba(255,0,0,.6);
-            padding:20px;
-            animation:flash .8s infinite;
-        }
+<style>
 
-        @keyframes flash{
-            0%,100%{
-                color:#ff2d2d;
-            }
-            50%{
-                color:#fff;
-            }
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-        ::selection{
-            background:yellow;
-            color:black;
-        }
-    </style>
+body{
+background:black;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+overflow:hidden;
+color:white;
+text-align:center;
+}
+
+#text{
+font-size:clamp(40px,7vw,100px);
+font-weight:bold;
+padding:20px;
+}
+
+img{
+display:none;
+width:min(90vw,500px);
+border-radius:15px;
+opacity:1;
+transition:opacity 3s;
+}
+
+.fade{
+opacity:0;
+}
+
+#btn{
+display:none;
+margin-top:30px;
+padding:18px 40px;
+font-size:32px;
+background:#0d6efd;
+color:white;
+border-radius:15px;
+text-decoration:none;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>กุว่าละว่ามึงไม่เต็ม 😂</h1>
+<div id="text">
+มาดูหน้าคนไม่เต็มกัน 😂
+</div>
+
+<img id="img" src="face.png">
+
+<a id="btn" href="about.html">
+👉 เกี่ยวกับฉัน
+</a>
+
+<script>
+
+const text=document.getElementById("text");
+const img=document.getElementById("img");
+const btn=document.getElementById("btn");
+
+setTimeout(()=>{
+text.innerHTML="หยอกเล่น 😂";
+},2000);
+
+setTimeout(()=>{
+text.style.display="none";
+img.style.display="block";
+},4000);
+
+setTimeout(()=>{
+img.classList.add("fade");
+},7000);
+
+setTimeout(()=>{
+img.style.display="none";
+btn.style.display="inline-block";
+},10000);
+
+</script>
 
 </body>
 </html>
